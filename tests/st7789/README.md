@@ -9,8 +9,8 @@ You need to download [circuitpython libraries](https://circuitpython.org/librari
 GP1 - CS
 GP0 - DC
 GP4 - RES
-GP3 - SDA
-GP2 - SCL
+GP2 - SDA
+GP3 - SCL
 3V3 - VCC
 GND - GND
 ```
@@ -30,6 +30,12 @@ GND - GND
 * `./st7789_imagetest.py` use `OnDiskBitmap`, it source the bitmap image directly from flash memory storage. So slow.
 * `./st7789_imagetest_imageload.py` use `adafruit_imageload`. It is more faster then using `OnDiskBitmap`.
 
+
+## Tests
+* `./st7789_imagetest.py`: display image throught OnDiskBitmap
+* `./st7789_imagetest_imageload.py`: display image after loading
+* `./st7789_imagetest_sprite.py`: display sprite images using one bitmap file.
+* `./st7789_imagetest_sprite_autorefreshOff.py`: refresh off test.
 
 # References
 * https://docs.circuitpython.org/projects/st7789/en/latest/index.html

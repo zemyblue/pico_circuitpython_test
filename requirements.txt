@@ -1,0 +1,6 @@
+circuitpython-build-tools
+adafruit-circuitpython-lis3dh
+
+# for st7789
+Adafruit-Blinka
+adafruit-blinka-displayio
