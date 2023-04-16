@@ -3,15 +3,15 @@
 This test use 1.69 inch(280x240) TFT display.
 You need to download [circuitpython libraries](https://circuitpython.org/libraries) and unzip for testing.
 
-**Connected Pins**
+## Connected Pins
 ```
-3v3 - BLK (blacklight, always on)
-GP1 - CS
-GP0 - DC
-GP4 - RES
-GP2 - SDA
-GP3 - SCL
-3V3 - VCC
+BLK - 3V3 (blacklight, always on)
+CS  - GP1
+DC  - GP0
+RES - GP9
+SDA - GP2
+SCL - GP3
+VCC - 3V3
 GND - GND
 ```
 

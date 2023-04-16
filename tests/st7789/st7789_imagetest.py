@@ -15,7 +15,7 @@ displayio.release_displays()
 
 tft_cs = board.GP1
 tft_dc = board.GP0
-tft_res = board.GP4
+tft_res = board.GP9
 spi_sda_mosi = board.GP3
 spi_scl_clk = board.GP2
 
