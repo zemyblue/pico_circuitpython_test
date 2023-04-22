@@ -50,7 +50,7 @@ def print_directory(path, tabs=0):
         if isdir:
             print_directory(path + "/" + file, tabs + 1)
 
-path = "/sd/sounds_8k"
+path = "/sd/music"
 
 print("Files on filesystem:")
 print("====================")
@@ -61,8 +61,7 @@ print("====================")
 audio = AudioOut(board.GP14)
 
 # single file play
-# # filename = "01_Running_About.wav"
-# filename = "03_Swimming_Around.wav"
+# filename = "01_Running_About.wav"
 # wave_file = open(path + "/" + filename, "rb")
 # wave = WaveFile(wave_file)
 
@@ -79,11 +78,11 @@ for file in os.listdir(path):
     wave_file = open(path + "/" + file, "rb")
     wave = WaveFile(wave_file)
     audio.play(wave)
-    wave.sample_rate = int(wave.sample_rate * 0.90) # play 10% slower each time
+    # wave.sample_rate = int(wave.sample_rate * 0.90) # play 10% slower each time
     print("Play [%s]" % file)
     while audio.playing:
         pass
     print("End Play")
+    audio.stop()
     
-
 print("Done playing!")
