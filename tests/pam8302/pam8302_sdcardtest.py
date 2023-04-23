@@ -3,9 +3,8 @@ import os
 
 import board
 import busio
-import digitalio
+import sdcardio
 import storage
-import adafruit_sdcard
 # from audiomp3 import MP3Decoder
 from audiopwmio import PWMAudioOut as AudioOut
 from audiocore import WaveFile
@@ -18,8 +17,7 @@ sd_cs = board.GP13
 
 # Connect to the card and mount the filesystem.
 spi = busio.SPI(sd_sck, MOSI=sd_mosi, MISO=sd_miso)
-cs = digitalio.DigitalInOut(sd_cs)
-sdcard = adafruit_sdcard.SDCard(spi, cs)
+sdcard = sdcardio.SDCard(spi, sd_cs)
 vfs = storage.VfsFat(sdcard)
 storage.mount(vfs, "/sd")
 
@@ -50,11 +48,11 @@ def print_directory(path, tabs=0):
         if isdir:
             print_directory(path + "/" + file, tabs + 1)
 
-path = "/sd/music"
+filepath = "/sd/sounds"
 
 print("Files on filesystem:")
 print("====================")
-print_directory(path)
+print_directory(filepath)
 print("====================")
 
 # configure AudioOut & set path where sounds can be found
@@ -70,19 +68,27 @@ audio = AudioOut(board.GP14)
 # while audio.playing:
 #     pass
 
-# play multiple file
-for file in os.listdir(path):
-    if file.startswith('.') or not file.endswith(".wav"):
-        continue
-    print("full path: [%s/%s]" % (path, file))
-    wave_file = open(path + "/" + file, "rb")
-    wave = WaveFile(wave_file)
-    audio.play(wave)
-    # wave.sample_rate = int(wave.sample_rate * 0.90) # play 10% slower each time
-    print("Play [%s]" % file)
-    while audio.playing:
-        pass
-    print("End Play")
+def play_dir(path):
+    print("start play_dir")
+    # play multiple file
+    for file in os.listdir(path):
+        if file.startswith('.') or not file.endswith(".wav"):
+            continue
+        print("full path: [%s/%s]" % (path, file))
+        wave_file = open(path + "/" + file, "rb")
+        wave = WaveFile(wave_file)
+        audio.play(wave)
+        # wave.sample_rate = int(wave.sample_rate * 0.90) # play 10% slower each time
+        print("Play [%s]" % file)
+        while audio.playing:
+            pass
+        print("End Play")
+        audio.stop()
+
+try:
+    play_dir(filepath)
+except KeyboardInterrupt:
     audio.stop()
+    print("audio player terminated.")
     
 print("Done playing!")

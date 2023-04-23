@@ -2,6 +2,8 @@
 
 Audio amplifier
 
+The wav or mp3 file in Raspberry Pi Pico should be under 22kHz and under 16bit rate.
+
 ## Connected Pins
 ```
 A+  - GP14
