@@ -14,7 +14,7 @@ SCK  - GP6
 SDA  - GP5
 ```
 
-## Copy adafrui library
+## Copy adafruit library
 Please upload below lib files to `CIRCUITPY/lib` folder 
 * [./lib/mfrc522.py](./lib/mfrc522.py)
 * [./lib/decode_ndef.py](./lib/decode_ndef.py)
