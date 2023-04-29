@@ -10,3 +10,6 @@ adafruit-circuitpython-imageload
 # for sdcard
 adafruit-circuitpython-busdevice
 adafruit-circuitpython-sd
+
+# for mpu6050
+adafruit-circuitpython-mpu6050
