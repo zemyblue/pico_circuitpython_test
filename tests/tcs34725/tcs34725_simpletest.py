@@ -3,10 +3,8 @@ import board
 import busio
 import adafruit_tcs34725
 
-# i2c_sda = board.GP18
-# i2c_scl = board.GP19
-i2c_sda = board.GP20
-i2c_scl = board.GP21
+i2c_sda = board.GP18
+i2c_scl = board.GP19
 
 i2c = busio.I2C(scl=i2c_scl, sda=i2c_sda)
 sensor = adafruit_tcs34725.TCS34725(i2c)
