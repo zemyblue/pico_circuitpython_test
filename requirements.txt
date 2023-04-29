@@ -13,3 +13,6 @@ adafruit-circuitpython-sd
 
 # for mpu6050
 adafruit-circuitpython-mpu6050
+
+# for tcs34725
+adafruit-circuitpython-tcs34725
