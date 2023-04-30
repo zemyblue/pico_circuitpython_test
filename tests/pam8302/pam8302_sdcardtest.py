@@ -87,8 +87,8 @@ def play_dir(path):
 
 try:
     play_dir(filepath)
-except KeyboardInterrupt:
+except Exception as err:
     audio.stop()
-    print("audio player terminated.")
+    print(f"audio player terminated. {err}")
     
 print("Done playing!")
