@@ -18,4 +18,5 @@ GND - GND
 * https://www.coderdojotc.org/micropython/sound/07-play-audio-file/
 * https://learn.adafruit.com/circuitpython-essentials/circuitpython-audio-out
 * https://github.com/todbot/circuitpython-tricks#audio-out-using-dac
+* https://docs.circuitpython.org/en/latest/shared-bindings/audiomixer/index.html
   
